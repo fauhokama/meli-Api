@@ -1,16 +1,21 @@
 const service = require('express').Router()
-const utils = require('./utils');
+const redis = require('../cache/redis')
+const content = require('../services/content');
 
-let code;
+service.get('/', (req, res) => {
+    const infoToRedis = async () => {
+        const token = await redis.getAsync('token');
 
-service.post('/', (req, res) => {
-    code = req.body.code;
-    utils.getToken(code)
-        .then(console.log(token));
+        // User info
+        await content.getUserInfo(token);
+
+        // Pending Orders
+        await content.getPendingOrders(token);
+    }
+    infoToRedis();
 });
 
-service.get('/token', (req, res) => {
-    console.log(code);
+service.get('/notifications', (req, res) => {
 })
 
 module.exports = service;
