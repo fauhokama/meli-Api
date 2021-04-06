@@ -11,11 +11,6 @@ endpoints.get('/userinfo', (req, res) => {
 });
 
 endpoints.get('/products', (req, res) => {
-    // redis.getSetAsync('set')
-    //     .then(setItems => setItems.forEach(async (element) => {
-    //         await redis.getHashMapAsync(element);
-    //     }))
-    //     .then(result => console.log(result))
 
     const getItemInfo = async () => {
         const setOfItems = await redis.getSetAsync('set');
@@ -30,8 +25,5 @@ endpoints.get('/products', (req, res) => {
     }
     getItemInfo();
 });
-
-// router.get('/', (req, res) => {
-// });
 
 module.exports = endpoints;

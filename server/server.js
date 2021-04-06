@@ -3,7 +3,6 @@ const express = require('express');
 const index = require('./controller/index');
 const cors = require('cors');
 
-// Init Express
 const app = express();
 const port = process.env.PORT || 3000;
 

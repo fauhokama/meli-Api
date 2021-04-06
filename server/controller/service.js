@@ -15,7 +15,4 @@ service.get('/', (req, res) => {
     infoToRedis();
 });
 
-service.get('/notifications', (req, res) => {
-})
-
 module.exports = service;
