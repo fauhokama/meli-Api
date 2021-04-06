@@ -12,7 +12,7 @@ While this has a real functionality in a business, this is primarily an educatio
 - Web App Architecture. This program uses:
  - Front End: React
  - Back End: Node/Express
- - Database Redis
+ - Database: Redis ( and Caching)
 - Better understanding of Authorization and Authentication.
 - Docker
 
