@@ -17,7 +17,7 @@ auth.get('/mercadolibre/callback', (req, res) => {
         await axios.get('http://localhost:3001/service');
     }
     tokenToRedis();
-    res.redirect('http://localhost:3000');
+    res.redirect('http://localhost:3000/list');
 });
 
 const meliAuth = 'https://auth.mercadolibre.com.ar/authorization?' +

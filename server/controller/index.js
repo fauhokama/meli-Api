@@ -5,6 +5,6 @@ const router = require('express').Router();
 
 router.use('/auth', auth);
 router.use('/service', service);
-router.use('/endpoints', endpoints);
+router.use('/api', endpoints);
 
 module.exports = router;

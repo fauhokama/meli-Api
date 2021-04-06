@@ -76,3 +76,5 @@ typings/
 .fusebox/
 server/.DS_Store
 .DS_Store
+.vscode/launch.json
+client/.vscode/settings.json

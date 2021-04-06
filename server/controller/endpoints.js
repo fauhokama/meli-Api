@@ -8,11 +8,28 @@ endpoints.get('/userinfo', (req, res) => {
         res.send(user);
     }
     getUserInfo();
-
 });
 
-// router.get('/products', (req, res) => {
-// });
+endpoints.get('/products', (req, res) => {
+    // redis.getSetAsync('set')
+    //     .then(setItems => setItems.forEach(async (element) => {
+    //         await redis.getHashMapAsync(element);
+    //     }))
+    //     .then(result => console.log(result))
+
+    const getItemInfo = async () => {
+        const setOfItems = await redis.getSetAsync('set');
+        let finalList = [];
+        await Promise.all(setOfItems.map(
+            async element => {
+                const item = await redis.getHashMapAsync(element);
+                finalList.push(item);
+            }
+        ));
+        res.send(finalList);
+    }
+    getItemInfo();
+});
 
 // router.get('/', (req, res) => {
 // });
